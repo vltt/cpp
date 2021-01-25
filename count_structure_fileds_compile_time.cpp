@@ -20,7 +20,7 @@ namespace detail {
     {
         return struct_size_impl<T>(std::make_index_sequence<args.size() + 1>());
     }
-}
+} // namespace detail
 
 template<typename St>
 constexpr size_t struct_size() {
@@ -36,6 +36,6 @@ struct Foo {
 };
 
 int main() {
-    constexpr size_t n = struct_size<std::string>();
-    std::cout << "n: " << n << std::endl;
+    constexpr size_t n = struct_size<Foo>();
+    std::cout << "n: " << n << std::endl; // n = 5
 }
